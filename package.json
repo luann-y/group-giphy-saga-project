@@ -1,0 +1,32 @@
+{
+  "name": "group-giphy-saga-project",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "axios": "^0.21.1",
+    "express": "^4.17.1",
+    "pg": "^8.5.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^5.3.4"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.2.1",
+    "nodemon": "^2.0.7",
+    "vite": "^5.0.10",
+    "vitest": "^1.1.0"
+  },
+  "scripts": {
+    "start": "node server/server.js | vite",
+    "client": "vite",
+    "server": "nodemon --watch server server/server.js",
+    "test": "vitest",
+    "build": "vite build"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
