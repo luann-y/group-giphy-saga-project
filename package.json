@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "axios": "^0.21.1",
+    "dotenv": "^16.4.4",
     "express": "^4.17.1",
     "pg": "^8.5.1",
     "react": "^18.2.0",
