@@ -1,3 +1,7 @@
+const API_KEY = process.env.API_KEY;
+
+console.log('API_KEY:', API_KEY);
+
 const express = require('express');
 const app = express();
 const favoriteRouter = require('./routes/favorite.router');
