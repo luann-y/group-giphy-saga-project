@@ -38,6 +38,7 @@ router.post('/search', (req, res) => {
     //success response
     .then((gifsResponse) => {
       console.log('SUCCESS', gifsResponse.data);
+      //map API to filter out and minimize data points
       const apiResults = gifsResponse.data.data.map((imageData) => {
         return {
           id: imageData.id,
