@@ -3,7 +3,7 @@ function ImageResult() {
 
     return (
         <div>
-        <h3>IMAGE RESULT</h3>
+        <h3>Image Search Results</h3>
         </div>
     );
 }

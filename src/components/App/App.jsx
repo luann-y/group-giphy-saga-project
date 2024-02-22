@@ -8,6 +8,7 @@ import {
 import Header from '../Header/Header';
 import Home from '../Home/Home';
 import Favorites from '../Favorites/Favorites';
+import ImageResult from "../ImageResult/ImageResult";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/favorites" exact>
           <Favorites />
         </Route>
+        <ImageResult />
         </main>
       </Router>
     </div>
