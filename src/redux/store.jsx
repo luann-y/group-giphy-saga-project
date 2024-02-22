@@ -8,6 +8,14 @@ import axios from 'axios';
 
 // REDUCERS (redux)
 
+// this reducer is to let us write code while not making the DOM angry
+const test = (state = '', action) => {
+  if (action.type === 'THIS_IS_A_TEST') {
+    return action.payload;
+  }
+  return state;
+};
+
 // SAGA
 const sagaMiddleware = createSagaMiddleware();
 
@@ -37,7 +45,7 @@ function* watcherSaga() {
 const store = createStore(
   // This function is our first reducer
   // reducer is a function that runs every time an action is dispatched
-  combineReducers({}),
+  combineReducers({ test }),
   applyMiddleware(sagaMiddleware, logger)
 );
 
