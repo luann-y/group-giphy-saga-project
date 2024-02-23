@@ -1,4 +1,6 @@
-import { Link } from 'react-router-dom';
+
+import { Link } from "react-router-dom";
+
 
 function Header() {
   return (
@@ -11,9 +13,11 @@ function Header() {
         <li>
           <Link to="Favorites">Favorites</Link>
         </li>
+
         <li>
           <Link to="search">Search</Link>
         </li>
+
       </ul>
     </div>
   );
