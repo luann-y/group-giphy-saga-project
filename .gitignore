@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 .env
+=======
+package-lock.json
+.env
+
+>>>>>>> 79f83a6f0b3d47132507ce994d9f4df6978cfd94
 # Mac Auto-Generated Files
 .DS_Store
 .DS_STORE/
