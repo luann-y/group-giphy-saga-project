@@ -2,13 +2,13 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 function SearchForm() {
-  const [neoSearch, setNeoSearch] = useState();
+  const [neoSearch, setNeoSearch] = useState({ name: '' });
   const dispatch = useDispatch();
 
   const handleSearch = (event) => {
     event.preventDefault();
     dispatch({ type: 'SEARCH_GIPHY', payload: neoSearch });
-    setNeoSearch('');
+    setNeoSearch({ name: '' });
   };
 
   const handleStartSearch = (event) => {
@@ -22,8 +22,10 @@ function SearchForm() {
           id="search"
           placeholder="What you want?"
           type="text"
-          value={neoSearch}
-          onChange={handleStartSearch}
+          value={neoSearch.name}
+          onChange={(event) =>
+            setNeoSearch({ ...neoSearch, name: event.target.value })
+          }
         />
         <button onClick={handleSearch}>Find ?</button>
       </form>

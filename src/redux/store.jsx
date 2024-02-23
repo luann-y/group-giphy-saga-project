@@ -9,11 +9,21 @@ import axios from 'axios';
 // REDUCERS (redux)
 
 // this reducer is to let us write code while not making the DOM angry
-const test = (state = '', action) => {
-  if (action.type === 'THIS_IS_A_TEST') {
-    return action.payload;
+// const test = (state = '', action) => {
+//   if (action.type === 'THIS_IS_A_TEST') {
+//     return action.payload;
+//   }
+//   return state;
+// };
+
+//Reducer to set images
+const giphy = (state = [], action) => {
+  switch (action.type) {
+    case 'SET_IMAGES':
+      return action.payload;
+    default:
+      return state;
   }
-  return state;
 };
 
 // SAGA
@@ -45,7 +55,7 @@ function* watcherSaga() {
 const store = createStore(
   // This function is our first reducer
   // reducer is a function that runs every time an action is dispatched
-  combineReducers({ test }),
+  combineReducers({ giphy }),
   applyMiddleware(sagaMiddleware, logger)
 );
 

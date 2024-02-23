@@ -1,4 +1,5 @@
 package-lock.json
+.env
 
 # Mac Auto-Generated Files
 .DS_Store
