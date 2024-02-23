@@ -1,22 +1,23 @@
 import { useSelector } from "react-redux";
+import "./ImageResult.css";
 
 function ImageResult() {
     const giphy = useSelector((store) => store.giphy);
 
     return (
-      <div>
+        <div>
         <h3>IMAGE RESULT</h3>
-        <ul>
-          {giphy.map((giphyImage) => {
+        <div className="image-grid">
+            {giphy.map((giphyImage) => {
             return (
-                <li key={giphyImage.id}>
-                <img src={giphyImage.url} alt={giphyImage.alt} />
-              </li>
+                <div key={giphyImage.id} className="image-container">
+                <img src={giphyImage.url} alt={giphyImage.alt} className="image"/>
+                </div>
             );
-          })}
-        </ul>
-      </div>
+        })}
+        </div>
+        </div>
     );
-  }
+}
 
 export default ImageResult;
