@@ -1,6 +1,7 @@
 import {Button} from "@mui/material"
 import { useState } from "react";
 import { useSelector } from "react-redux";
+import axios from "axios";
 
 function FavoriteButton(){
     const[favorites, setFavorites]=useState({});
@@ -14,6 +15,10 @@ function FavoriteButton(){
         if (updatedFavorites[id]) {
             // If it is remove it from favorites
             console.log('deleting!!!!!');
+            axios   .delete(`/api/favorites/${id}`)
+            .then((response)=>{
+                console.log("DELETE SUCCESSFUL");
+            })
             delete updatedFavorites[id];
         } else {
             // If it's not add it to favorites
