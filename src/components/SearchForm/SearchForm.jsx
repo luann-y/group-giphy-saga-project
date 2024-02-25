@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 function SearchForm() {
-  const [neoSearch, setNeoSearch] = useState();
+  const [neoSearch, setNeoSearch] = useState('');
   const dispatch = useDispatch();
 
   const handleSearch = (event) => {
@@ -23,7 +23,7 @@ function SearchForm() {
           placeholder="What you want?"
           type="text"
           value={neoSearch}
-          onChange={handleStartSearch}
+          onChange={(event) => handleStartSearch(event)}
         />
         <button onClick={handleSearch}>Find ?</button>
       </form>
