@@ -25,7 +25,7 @@ INSERT INTO "categories"
 -- Favorites table:
 
 CREATE TABLE "favorites" (
-  "id" SERIAL PRIMARY KEY,
+  "id" VARCHAR (100) NOT NULL,
   "name" VARCHAR (100) NOT NULL,
   "url" VARCHAR,
   "category_id" integer
