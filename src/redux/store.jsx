@@ -8,14 +8,6 @@ import axios from 'axios';
 
 // REDUCERS (redux)
 
-// this reducer is to let us write code while not making the DOM angry
-// const test = (state = '', action) => {
-//   if (action.type === 'THIS_IS_A_TEST') {
-//     return action.payload;
-//   }
-//   return state;
-// };
-
 //Reducer to set images
 const giphy = (state = [], action) => {
   switch (action.type) {
