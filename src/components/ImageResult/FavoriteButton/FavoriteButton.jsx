@@ -3,36 +3,53 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import axios from "axios";
 
-function FavoriteButton(){
+function FavoriteButton({giphyImage}){
     const[favorites, setFavorites]=useState({});
     const giphy = useSelector((store) => store.giphy);
     
-    function changeFavoriteStatus(id){
-        console.log(id);
+    function changeFavoriteStatus(image){
         const updatedFavorites = { ...favorites };
+        console.log(giphyImage);
     
         // Check if the image is already in favorites
-        if (updatedFavorites[id]) {
+        if (updatedFavorites[image.id]) {
             // If it is remove it from favorites
             console.log('deleting!!!!!');
-            axios   .delete(`/api/favorites/${id}`)
-            .then((response)=>{
-                console.log("DELETE SUCCESSFUL");
-            })
-            delete updatedFavorites[id];
+            console.log(image);
+            axios   
+                .delete(`/api/favorites/${image.id}`)
+                .then((response)=>{
+                    console.log("DELETE SUCCESSFUL");
+                    delete updatedFavorites[image.id];
+                    setFavorites(updatedFavorites)
+                })
+                .catch((error)=>{
+                    console.error("++error deleting favorite++", error);
+                });
         } else {
-            // If it's not add it to favorites
             console.log("adding!!!!!!");
-            updatedFavorites[id] = true;
-        }
-        setFavorites(updatedFavorites)
+            axios
+                .post('/api/favorites', {id: image.id, name: image.alt, url: image.url }) 
+                .then((response) => {
+                    console.log("POST SUCCESSFUL!!!!!!!!");
+                    updatedFavorites[image.id] = true;
+                    setFavorites(updatedFavorites);
+                })
+                .catch((err) => {
+                    console.error("Error adding favorite:", err);
+                });
     }
+  }
+    
+  const buttonText = favorites[giphyImage.id] ? "Unfavorite" : "Favorite";
 
-    return(
-        <>
-         <Button onClick={changeFavoriteStatus}>Favorite</Button>
-        </>
-    );
+  return (
+      <>
+          <Button onClick={() => changeFavoriteStatus(giphyImage)}>
+              {buttonText}
+          </Button>
+      </>
+  );
 }
 
 export default FavoriteButton;
