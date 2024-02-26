@@ -1,8 +1,10 @@
 import { useSelector } from "react-redux";
 import "./ImageResult.css";
+import FavoriteButton from "./FavoriteButton/FavoriteButton";
+
 
 function ImageResult() {
-    const giphy = useSelector((store) => store.giphy);
+  const giphy=useSelector((store)=>store.giphy);
 
     return (
         <div>
@@ -11,7 +13,9 @@ function ImageResult() {
             {giphy.map((giphyImage) => {
             return (
                 <div key={giphyImage.id} className="image-container">
+                   <FavoriteButton giphyImage={giphyImage} giphyId={giphyImage.id} url={giphyImage.url} name={giphyImage.name} />
                 <img src={giphyImage.url} alt={giphyImage.alt} className="image"/>
+                
                 </div>
             );
         })}
