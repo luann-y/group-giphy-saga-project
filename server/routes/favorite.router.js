@@ -33,7 +33,7 @@ router.put('/favorites/:id', (req, res) => {
 });
 
 // delete a favorite
-router.delete('/favorites/:id', (req, res) => {
+router.delete('/:id', (req, res) => {
   const favoriteId = req.params.id;
   const queryText = 'DELETE FROM favorites WHERE id = $1';
 
@@ -42,7 +42,7 @@ router.delete('/favorites/:id', (req, res) => {
       res.sendStatus(200);
     })
     .catch(error => {
-      console.error(object);
+      console.error("++++error deleting favorite:", error);
       res.sendStatus(500);
     });
 });

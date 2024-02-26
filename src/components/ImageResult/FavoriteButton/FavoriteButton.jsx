@@ -15,11 +15,16 @@ function FavoriteButton({giphyImage}){
         if (updatedFavorites[image.id]) {
             // If it is remove it from favorites
             console.log('deleting!!!!!');
-            axios   .delete(`/api/favorites/${image.id}`)
-            .then((response)=>{
-                console.log("DELETE SUCCESSFUL");
-            })
-            delete updatedFavorites[image.id];
+            console.log(image);
+            axios   
+                .delete(`/api/favorites/${image.id}`)
+                .then((response)=>{
+                    console.log("DELETE SUCCESSFUL");
+                    delete updatedFavorites[image.id];
+                })
+                .catch((error)=>{
+                    console.error("++error deleting favorite++", error);
+                });
         } else {
             console.log("adding!!!!!!");
             axios
