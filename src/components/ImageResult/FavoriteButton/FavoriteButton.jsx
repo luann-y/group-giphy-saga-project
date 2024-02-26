@@ -2,6 +2,8 @@ import {Button} from "@mui/material"
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import axios from "axios";
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 
 function FavoriteButton({giphyImage}){
     const[favorites, setFavorites]=useState({});
@@ -45,7 +47,7 @@ function FavoriteButton({giphyImage}){
 
   return (
       <>
-          <Button onClick={() => changeFavoriteStatus(giphyImage)}>
+          <Button variant="contained" size="small" endIcon={favorites[giphyImage.id] ? <FavoriteIcon /> : <FavoriteBorderOutlinedIcon />} onClick={() => changeFavoriteStatus(giphyImage)}>
               {buttonText}
           </Button>
       </>

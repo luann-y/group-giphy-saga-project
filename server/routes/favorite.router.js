@@ -11,12 +11,12 @@ router.get('/', (req, res) => {
 // add a new favorite
 router.post('/', (req, res) => {
   console.log('in router post++++');
-  const id=req.body.id;
+  const giphy_id=req.body.id;
   const name = req.body.name;
   const url=req.body.url;
-  const queryText = 'INSERT INTO favorites (id, name, url) VALUES ($1, $2, $3)'
+  const queryText = 'INSERT INTO favorites (giphy_id, name, url) VALUES ($1, $2, $3)'
 
-  pool.query(queryText, [id, name, url])
+  pool.query(queryText, [giphy_id, name, url])
     .then(result => {
       res.sendStatus(201)
     })
@@ -34,10 +34,10 @@ router.put('/:id', (req, res) => {
 
 // delete a favorite
 router.delete('/:id', (req, res) => {
-  const favoriteId = req.params.id;
-  const queryText = 'DELETE FROM favorites WHERE id = $1';
+  const giphy_id = req.params.id;
+  const queryText = 'DELETE FROM favorites WHERE giphy_id = $1';
 
-  pool.query(queryText, [favoriteId])
+  pool.query(queryText, [giphy_id])
     .then(() => {
       res.sendStatus(200);
     })
