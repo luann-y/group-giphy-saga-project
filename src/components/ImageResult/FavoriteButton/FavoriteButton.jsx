@@ -21,6 +21,7 @@ function FavoriteButton({giphyImage}){
                 .then((response)=>{
                     console.log("DELETE SUCCESSFUL");
                     delete updatedFavorites[image.id];
+                    setFavorites(updatedFavorites)
                 })
                 .catch((error)=>{
                     console.error("++error deleting favorite++", error);
@@ -31,21 +32,24 @@ function FavoriteButton({giphyImage}){
                 .post('/api/favorites', {id: image.id, name: image.alt, url: image.url }) 
                 .then((response) => {
                     console.log("POST SUCCESSFUL!!!!!!!!");
+                    updatedFavorites[image.id] = true;
+                    setFavorites(updatedFavorites);
                 })
                 .catch((err) => {
                     console.error("Error adding favorite:", err);
                 });
-      updatedFavorites[image.id] = true;
     }
-    setFavorites(updatedFavorites);
   }
     
+  const buttonText = favorites[giphyImage.id] ? "Unfavorite" : "Favorite";
 
-    return(
-        <>
-         <Button onClick={()=> changeFavoriteStatus(giphyImage)}>Favorite</Button>
-        </>
-    );
+  return (
+      <>
+          <Button onClick={() => changeFavoriteStatus(giphyImage)}>
+              {buttonText}
+          </Button>
+      </>
+  );
 }
 
 export default FavoriteButton;
