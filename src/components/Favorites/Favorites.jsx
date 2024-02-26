@@ -1,11 +1,14 @@
-
+import CategoryMenu from '../CategoryMenu/CategoryMenu';
 
 
 function Favorites() {
-  return <p>This is where the favorites go</p>;
+  return (
+    <div>
+      <p>This is where the favorites go</p>
+      <CategoryMenu />
+    </div>
+  )
 // create favorite button and add image to favorite db
-
-// allow user to select category for image I'm thinking a drop down menu
 
 // categories are mutually exclusive
 
