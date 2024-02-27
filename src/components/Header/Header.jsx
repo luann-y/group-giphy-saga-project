@@ -8,9 +8,6 @@ function Header() {
       <h1>Giphy Search!</h1>
       <ul>
         <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
           <Link to="Favorites">Favorites</Link>
         </li>
 
