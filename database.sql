@@ -34,8 +34,3 @@ CREATE TABLE "favorites" (
 --    One favorite has one category.
 --    One category can be had by many favorites.
 
-INSERT INTO favorites (id, name, url) 
-VALUES 
-  ('adk34jker43kt', 'Test Image 1', 'https://example.com/image1.gif'),
-  ('jdkha8e7t39efhgp','Test Image 2', 'https://example.com/image2.gif'),
-  ('af89rhfh39jf','Test Image 3', 'https://example.com/image3.gif');
