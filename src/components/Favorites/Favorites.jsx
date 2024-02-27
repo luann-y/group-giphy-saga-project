@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
+import "./Favorites.css";
 import CategoryMenu from "../CategoryMenu/CategoryMenu";
 
 function Favorites() {
@@ -25,12 +26,13 @@ function Favorites() {
     fetchFavorites();
   }, []);
   return (
-    <div>
-      <p>This is where the favorites go</p>
+    <div className="image-grid">
       {favorites.map((favorites) => (
-        <div key={favorites.id}>
+        <div>
           <CategoryMenu />
-          <img src={favorites.url} alt={favorites.name} className="image" />
+          <div key={favorites.id} className="image-container">
+            <img src={favorites.url} alt={favorites.name} className="image" />
+          </div>
         </div>
       ))}
     </div>
