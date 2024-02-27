@@ -11,16 +11,18 @@ router.get('/', (req, res) => {
 // add a new favorite
 router.post('/', (req, res) => {
   console.log('in router post++++');
-  const giphy_id=req.body.id;
+  const giphy_id = req.body.id;
   const name = req.body.name;
-  const url=req.body.url;
-  const queryText = 'INSERT INTO favorites (giphy_id, name, url) VALUES ($1, $2, $3)'
+  const url = req.body.url;
+  const queryText =
+    'INSERT INTO favorites (giphy_id, name, url) VALUES ($1, $2, $3)';
 
-  pool.query(queryText, [giphy_id, name, url])
-    .then(result => {
-      res.sendStatus(201)
+  pool
+    .query(queryText, [giphy_id, name, url])
+    .then((result) => {
+      res.sendStatus(201);
     })
-    .catch(error => {
+    .catch((error) => {
       console.error('ERROR ADDING FAVORITE', error);
       res.sendStatus(500);
     });
@@ -37,12 +39,13 @@ router.delete('/:id', (req, res) => {
   const giphy_id = req.params.id;
   const queryText = 'DELETE FROM favorites WHERE giphy_id = $1';
 
-  pool.query(queryText, [giphy_id])
+  pool
+    .query(queryText, [giphy_id])
     .then(() => {
       res.sendStatus(200);
     })
-    .catch(error => {
-      console.error("++++error deleting favorite:", error);
+    .catch((error) => {
+      console.error('++++error deleting favorite:', error);
       res.sendStatus(500);
     });
 });
