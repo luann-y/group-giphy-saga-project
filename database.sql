@@ -6,12 +6,6 @@ CREATE TABLE "categories" (
   "name" VARCHAR (100) NOT NULL
 );
 
-CREATE TABLE "favorites" (
- "id" VARCHAR (100) NOT NULL,
- "name" VARCHAR (100) NOT NULL,
- "url" VARCHAR,
- "category_id" integer DEFAULT 0
-);
 -- Default categories. You may change these. 🙂
 INSERT INTO "categories"
   ("name")
@@ -25,10 +19,11 @@ INSERT INTO "categories"
 -- Favorites table:
 
 CREATE TABLE "favorites" (
-  "id" VARCHAR (100) NOT NULL,
-  "name" VARCHAR (100) NOT NULL,
-  "url" VARCHAR,
-  "category_id" integer
+ "id" SERIAL PRIMARY KEY,
+ "giphy_id" VARCHAR (100) NOT NULL,
+ "name" VARCHAR (100) NOT NULL,
+ "url" VARCHAR,
+ "category_id" integer DEFAULT 0
 );
 
 
